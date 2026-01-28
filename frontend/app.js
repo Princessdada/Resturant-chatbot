@@ -17,12 +17,7 @@ const menuGrid = document.getElementById('menu-grid');
 
 // Initialize Application
 function init() {
-  // Get or create device ID
-  deviceId = localStorage.getItem('deviceId');
-  if (!deviceId) {
-    deviceId = generateDeviceId();
-    localStorage.setItem('deviceId', deviceId);
-  }
+  // Device ID logic removed - handled by server session cookies
 
   // Load initial message
   const urlParams = new URLSearchParams(window.location.search);
@@ -74,10 +69,7 @@ function init() {
   });
 }
 
-// Generate unique device ID
-function generateDeviceId() {
-  return 'device_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-}
+// Generate unique device ID - Removed
 
 // Load welcome message
 async function loadWelcomeMessage() {
@@ -87,8 +79,9 @@ async function loadWelcomeMessage() {
       headers: {
         'Content-Type': 'application/json',
       },
+      // Including credentials to send cookies
+      credentials: 'include',
       body: JSON.stringify({
-        deviceId: deviceId,
         message: ''
       })
     });
@@ -127,8 +120,8 @@ async function sendMessage() {
       headers: {
         'Content-Type': 'application/json',
       },
+      credentials: 'include',
       body: JSON.stringify({
-        deviceId: deviceId,
         message: message
       })
     });

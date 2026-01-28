@@ -56,7 +56,8 @@ const handleMessage = async (message, session) => {
         const { initializePayment } = require("./paystackService"); // Lazy load
      
         const email = "customer@example.com"; 
-        const callbackUrl = `http://localhost:8000/payment/callback?deviceId=${session.deviceId}`; // We'll need deviceId here
+        // We rely on session cookies for the callback
+        const callbackUrl = `http://localhost:8000/payment/callback`;
         
         const paymentData = await initializePayment(email, totalAmount, callbackUrl);
         

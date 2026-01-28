@@ -15,7 +15,7 @@ const sessionMiddleware = require("./config/session")
 const chatRoute = require("./routes/chatRoute");
 app.use(
   cors({
-    origin: ["http://localhost:8000", "http://127.0.0.1:8000"],
+    origin: true, // Allow any origin that sends the request (mirrors Origin header)
     credentials: true,
   })
 );
