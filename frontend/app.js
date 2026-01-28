@@ -1,5 +1,5 @@
 // Configuration
-const API_URL = 'http://localhost:8000';
+const API_URL = ''; // Relative path for production compatibility
 
 // State Management
 let deviceId = null;
