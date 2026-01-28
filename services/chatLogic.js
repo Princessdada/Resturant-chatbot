@@ -1,7 +1,6 @@
 const menu = require("../menu.js");
 const { mainmenu, foodMenu } = require("../utils/menuResponse.js");
 const { calculateTotal } = require("../utils/calculateTotal.js");
-const { calculateTotal } = require("../utils/calculateTotal.js");
 
 /**
  * Handles incoming chat messages and determines the appropriate response.
