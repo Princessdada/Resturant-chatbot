@@ -25,7 +25,7 @@ const chat = async (req, res) => {
       res.json({ reply });
   } catch (error) {
       console.error("Error in chat controller:", error);
-      res.status(500).json({ reply: "An error occurred" });
+      res.status(500).json({ reply: "Debug Error: " + error.message });
   }
 };
 

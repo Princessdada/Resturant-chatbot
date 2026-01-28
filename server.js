@@ -9,6 +9,7 @@ const db = require("./config/db");
 const menu = require("./menu");
 db.connectToMongodb();
 const app = express();
+app.set('trust proxy', 1); // Trust first proxy (Render load balancer) enabling secure cookies
 const server = http.createServer(app);
 const PORT = process.env.PORT || 8000;
 const sessionMiddleware = require("./config/session")
