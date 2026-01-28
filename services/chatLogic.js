@@ -1,7 +1,17 @@
 const menu = require("../menu.js");
 const { mainmenu, foodMenu } = require("../utils/menuResponse.js");
 const { calculateTotal } = require("../utils/calculateTotal.js");
-// function that handles the option logic
+const { calculateTotal } = require("../utils/calculateTotal.js");
+
+/**
+ * Handles incoming chat messages and determines the appropriate response.
+ * Manages state transitions (IDLE -> ORDERING) and executes business logic
+ * for ordering, checkout, history, and cancellation.
+ * 
+ * @param {string} message - The user's input message/command.
+ * @param {Object} session - The user's session object from MongoDB.
+ * @returns {Promise<string>} - The text response to send back to the user.
+ */
 const handleMessage = async (message, session) => {
   // Handle empty message, reset to main menu
   if (!message || message.trim() === '') {
