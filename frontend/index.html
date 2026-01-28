@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Modern restaurant chatbot for seamless food ordering and delivery">
+  <meta name="keywords" content="restaurant, chatbot, food ordering, delivery">
+  <title>Restaurant Chatbot</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Chat Container -->
+    <div class="chat-container">
+      <!-- Header -->
+      <header class="header">
+        <h1>🍽️ Restaurant Chatbot</h1>
+        <p>Select options using numbers</p>
+      </header>
+
+      <!-- Messages Area -->
+      <div class="messages-area" id="messages-area">
+        <!-- Welcome message will be added here -->
+      </div>
+
+      <!-- Typing Indicator -->
+      <div class="typing-indicator" id="typing-indicator">
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+      </div>
+
+      <!-- Input Area -->
+      <div class="input-area">
+        <div class="input-wrapper">
+          <input 
+            type="text" 
+            id="message-input" 
+            placeholder="Enter number..." 
+            autocomplete="off"
+            aria-label="Message input"
+            inputmode="numeric"
+          >
+        </div>
+        <button class="btn btn-primary" id="send-btn" aria-label="Send message">
+          <span>Send</span>
+          <span>📤</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu Button -->
+  <button class="menu-btn" id="menu-btn" aria-label="View menu">
+    🍔
+  </button>
+
+  <!-- Menu Modal -->
+  <div class="menu-modal" id="menu-modal">
+    <div class="menu-content">
+      <div class="menu-header">
+        <h2>Our Menu</h2>
+        <button class="close-btn" id="close-menu-btn" aria-label="Close menu">×</button>
+      </div>
+      <div class="menu-grid" id="menu-grid">
+        <!-- Menu items will be loaded here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>

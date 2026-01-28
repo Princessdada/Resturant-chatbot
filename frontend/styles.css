@@ -1,0 +1,277 @@
+:root {
+  /* Simple Pink Color Palette */
+  --bg-primary: #FFF;
+  --bg-secondary: #f07bb5;
+  --bg-tertiary: #ff92cc;
+  --input-bg: rgba(255, 255, 255, 0.2);
+
+  /* Text Colors */
+  --text-primary: #c05f90;
+  --text-secondary: #FFFFFF;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 0.75rem;
+  --spacing-lg: 1rem;
+
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: var(--spacing-lg);
+}
+
+
+a {
+  color: #FFFFFF !important;
+  text-decoration: none;
+}
+
+/* Main Container */
+.container {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: var(--spacing-lg);
+  background: var(--bg-tertiary);
+ 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+
+  margin-bottom: var(--spacing-xs);
+}
+
+.header p {
+  font-size: 0.9rem;
+  color: white;
+  
+  margin: 0;
+}
+
+/* Chat Container */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Messages Area */
+.messages-area {
+  padding: var(--spacing-lg);
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  height: 450px;
+  background: var(--bg-secondary);
+}
+
+.messages-area::-webkit-scrollbar {
+  width: 6px;
+}
+
+.messages-area::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.messages-area::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 3px;
+}
+
+/* Message Bubbles */
+.message {
+  display: flex;
+  margin-bottom: var(--spacing-lg);
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message.bot {
+  justify-content: flex-start;
+}
+
+.message-bubble {
+  max-width: 85%;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-sm);
+  word-wrap: break-word;
+  font-size: 0.95rem;
+}
+
+.message.user .message-bubble {
+  background: var(--bg-tertiary);
+  color: white;
+}
+
+.message.bot .message-bubble {
+  background: rgba(255, 255, 255, 0.3);
+  color: var(--text-primary);
+}
+
+/* Typing Indicator */
+.typing-indicator {
+  display: none;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-md);
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-sm);
+  max-width: 60px;
+  margin-bottom: var(--spacing-lg);
+}
+
+.typing-indicator.active {
+  display: flex;
+}
+
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+  animation: typingBounce 1.4s infinite;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typingBounce {
+
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+  }
+
+  30% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Input Area */
+.input-area {
+  padding: var(--spacing-lg);
+  background: var(--bg-tertiary);
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.input-wrapper {
+  flex: 1;
+}
+
+#message-input {
+  width: 100%;
+  padding: var(--spacing-md);
+  background: var(--input-bg);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+}
+
+#message-input:focus {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+#message-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Buttons */
+.btn {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.btn-primary {
+  background: white;
+  color: var(--bg-tertiary);
+}
+
+.btn-primary:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Hide Menu Button and Modal - Not needed for USSD style */
+.menu-btn,
+.menu-modal {
+  display: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .messages-area {
+    height: 400px;
+  }
+
+  .header h1 {
+    font-size: 1.3rem;
+  }
+
+  .header p {
+    font-size: 0.85rem;
+  }
+}
