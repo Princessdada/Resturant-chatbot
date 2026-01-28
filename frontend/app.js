@@ -99,7 +99,12 @@ async function loadWelcomeMessage() {
     }
   } catch (error) {
     console.error('Error loading welcome message:', error);
-    addMessage('Welcome to our restaurant! 🍽️\n\nHow can I help you today?', 'bot');
+    addMessage(`Welcome to Princess Resturant
+Select 1 to Place an order
+Select 99 to Checkout order
+Select 98 to See order history
+Select 97 to See current order
+Select 0 to Cancel order`, 'bot');
   }
 }
 
