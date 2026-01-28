@@ -11,7 +11,9 @@ const chat = async (req, res) => {
       if (!req.session.state) req.session.state = "IDLE";
       // We can also store deviceId in session if we really want to persist it for logs, but not needed for logic
 
-      const reply = await handleMessage(message, req.session);
+      // Determine the domain for callbacks (e.g. http://localhost:8000 or https://myapp.onrender.com)
+      const domain = `${req.protocol}://${req.get('host')}`;
+      const reply = await handleMessage(message, req.session, domain);
 
       // Explicitly save session to ensure array changes are persisted
       // express-session usually handles this, but since we modify arrays in handleMessage, safe to save.
