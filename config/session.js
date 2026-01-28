@@ -8,7 +8,7 @@ const sessionMiddleware = session({
   saveUninitialized: false, // Don't create session until something is stored
   store: MongoStore.create({
     mongoUrl: process.env.MONGO_DB_CONNECTION_URL || process.env.MONGO_URI, // Check .env for exact name
-    collectionName: 'sessions'
+    collectionName: 'chat_sessions'
   }),
   cookie: {
     secure: process.env.NODE_ENV === 'production', 
